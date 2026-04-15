@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Wallet Adapter UI overrides for dark FlarePilot theme ---- */
+.wallet-adapter-button {
+  background: linear-gradient(135deg, #9945FF, #14F195) !important;
+  border-radius: 10px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease !important;
+}
+.wallet-adapter-button:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 0 24px rgba(153, 69, 255, 0.5) !important;
+}
+.wallet-adapter-modal-wrapper {
+  background: #0E1117 !important;
+  border: 1px solid #1E2535 !important;
+  border-radius: 20px !important;
+}
+.wallet-adapter-modal-title {
+  color: #E2E8F0 !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.wallet-adapter-modal-list li button {
+  background: #131720 !important;
+  border: 1px solid #1E2535 !important;
+  border-radius: 12px !important;
+  color: #E2E8F0 !important;
+  transition: all 0.2s ease !important;
+}
+.wallet-adapter-modal-list li button:hover {
+  background: #1E2535 !important;
+  border-color: #9945FF !important;
+}
+.wallet-adapter-modal-list-more {
+  color: #9945FF !important;
+}
+.wallet-adapter-modal-button-close {
+  background: #1E2535 !important;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0E1117; }
+::-webkit-scrollbar-thumb { background: #1E2535; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9945FF; }
+
+/* ---- Glass effect utility ---- */
+@layer components {
+  .glass {
+    @apply bg-flare-card border border-flare-border backdrop-blur-xl;
+  }
+  .glass-hover {
+    @apply transition-all duration-200 hover:border-flare-purple/40 hover:shadow-glow-purple;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-flare-purple to-flare-green;
+  }
+  .gradient-text-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-flare-blue to-flare-purple;
+  }
+  .badge-risk-low {
+    @apply bg-flare-green/10 text-flare-green border border-flare-green/30;
+  }
+  .badge-risk-medium {
+    @apply bg-flare-yellow/10 text-flare-yellow border border-flare-yellow/30;
+  }
+  .badge-risk-high {
+    @apply bg-red-500/10 text-red-400 border border-red-500/30;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-r from-flare-purple to-flare-blue text-white font-semibold px-4 py-2 rounded-xl
+           hover:opacity-90 hover:shadow-glow-purple transition-all duration-200 active:scale-95 text-sm;
+  }
+  .btn-secondary {
+    @apply bg-flare-border/50 text-flare-text font-medium px-4 py-2 rounded-xl
+           hover:bg-flare-border transition-all duration-200 active:scale-95 border border-flare-border text-sm;
+  }
+  .btn-green {
+    @apply bg-gradient-to-r from-flare-green/20 to-flare-green/10 text-flare-green font-semibold px-4 py-2 rounded-xl
+           border border-flare-green/30 hover:border-flare-green/60 hover:shadow-glow-green transition-all duration-200 active:scale-95 text-sm;
+  }
+  .input-base {
+    @apply bg-flare-surface border border-flare-border rounded-xl px-4 py-2.5 text-flare-text text-sm
+           focus:outline-none focus:border-flare-purple/60 focus:ring-1 focus:ring-flare-purple/30
+           placeholder:text-flare-muted transition-all duration-200;
+  }
+}
+
+/* ---- Shimmer loading skeleton ---- */
+.shimmer {
+  background: linear-gradient(90deg, #131720 25%, #1E2535 50%, #131720 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+/* ---- Glow ring for active nav ---- */
+.nav-active {
+  background: linear-gradient(135deg, rgba(153,69,255,0.15), rgba(20,241,149,0.08));
+  border-left: 2px solid #9945FF;
+}
+
+/* ---- Pulse dot ---- */
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid;
+  animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite;
+}
